@@ -25,7 +25,7 @@
    		</div>	   		
 	    	
 	   	<div>
-	   		<input type="submit" value="Preparar arquivos" class="btn btn-primary mt-3">
+	   		<input type="submit" id="prepara_arquivo" value="Preparar arquivos" class="btn btn-primary mt-3">
 	   	</div> 	
    	</form>
    	
@@ -37,7 +37,7 @@
 			</li>
 		</c:forEach>
 	</ul>
-	<a href='${s:mvcUrl("HC#persist").build()}' class="mt-3 btn btn-success">Enviar arquivos</a>
+	<a id="envia_arquivo" href='${s:mvcUrl("HC#persist").build()}' class="mt-3 btn btn-success">Enviar arquivos</a>
    	
    </main>  
 </body>
