@@ -1,8 +1,6 @@
 package com.foguetinho.api;
 
-import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
-import static org.testng.Assert.assertEquals;
 
 import org.junit.runner.RunWith;
 import org.springframework.beans.BeansException;
@@ -27,7 +25,6 @@ public class UploadConcurrentTest implements ApplicationContextAware, Initializi
     private boolean beanInitialized = false;
     
     private static SeleniumUploadExample seleniumExample;
-    private String expectedTitle = "Baeldung | Java, Spring and Web Development tutorials";    
     
     @BeforeClass
     public static void setUp() {
@@ -48,29 +45,8 @@ public class UploadConcurrentTest implements ApplicationContextAware, Initializi
     public void setApplicationContext(
       final ApplicationContext applicationContext) throws BeansException {
         this.applicationContext = applicationContext;
-    }   
-    /*
-    @Test
-    public void whenAboutBaeldungIsLoaded_thenAboutEugenIsMentionedOnPage() {
-        seleniumExample.getAboutBaeldungPage();
-        String actualTitle = seleniumExample.getTitle();
-      
-        assertNotNull(actualTitle);
-        assertEquals(expectedTitle, actualTitle);
-        assertTrue(seleniumExample.isAuthorInformationAvailable());
-    }
-    */
-    /* teste na pagina google
-    @Test
-    public void test() {    
-    	SeleniumConfig sc = new SeleniumConfig();
-    	driver = sc.getDriver();
-    	
-    	driver.get("https://google.com");
-    	String titulo = driver.getTitle();
-    	assertEquals(titulo, "Google");
-    }
-*/
+    }  
+    
     @Test(threadPoolSize = 1, invocationCount = 10, timeOut = 50000)
     public void givenMethod_whenRunInThreads_thenCorrect() {
         int count = Thread.activeCount();

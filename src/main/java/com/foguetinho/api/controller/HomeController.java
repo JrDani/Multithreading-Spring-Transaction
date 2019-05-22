@@ -34,9 +34,7 @@ import com.foguetinho.api.utils.storage.StorageService;
 public class HomeController {
 	private final StorageService storageService;
 	private List<RegTelefonico> regTelefonico = new ArrayList<>();
-	
-	/*service para puxar o arquivo do html e jogar no diretorio "upload-dir" e retornar um model
-	registro telefonico*/
+		
     @Autowired
     public HomeController(StorageService storageService) {
         this.storageService = storageService;
@@ -94,32 +92,6 @@ public class HomeController {
 			}    				
     	}
     	
-    	/*
-    	ThreadPoolExecutor executor = 
-			  (ThreadPoolExecutor) Executors.newFixedThreadPool(regTelefonico.size());
-			
-    		for(RegTelefonico rt: regTelefonico) {
-    			executor.submit(() -> {  
-    				
-    				Random r = new Random();    				
-					long timer = (long)(r.nextDouble()*10000L);	
-					System.out.println(rt.getTipoIsolamento().getId()+" Dormindo por " + timer);
-					Thread.sleep(timer);
-					
-					switch (rt.getTipoIsolamento().getId()) {
-					case 1:
-						System.out.println("serie");						
-						registraFaturaService.saveSerie(rt);
-						break;
-						
-					default:
-						System.out.println("default");					
-						registraFaturaService.save(rt); 
-					}    								
-    				return null;
-    			});				
-			}	
-    		*/
 		return "redirect:/";
     }
 

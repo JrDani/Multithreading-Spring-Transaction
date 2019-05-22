@@ -11,9 +11,9 @@ public class SeleniumConfig {
 		
 	public SeleniumConfig() {
 	
-		//String projectPath = System.getProperty("user.dir");
+		String projectPath = System.getProperty("user.dir");
 						
-		System.setProperty("webdriver.chrome.driver", "C:/Program Files (x86)/Google/Chrome/Application/chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", projectPath+"/driver/chromedriver.exe");
 
 		ChromeOptions options = new ChromeOptions();
 
