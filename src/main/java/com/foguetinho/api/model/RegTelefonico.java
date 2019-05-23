@@ -7,16 +7,19 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import com.sun.istack.NotNull;
 
 @Entity
-@Table(name="reg_telefonico")
+@Table(name="REG_TELEFONICO")
 public class RegTelefonico {
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Id	
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator="SEQ_CD_REG_TELEFONICO")
+    @SequenceGenerator(sequenceName = "SEQ_CD_REG_TELEFONICO", 
+                       name = "SEQ_CD_REG_TELEFONICO", allocationSize = 1, initialValue = 1)
 	@Column(name="cd_reg_telefonico")
 	private Long id;
 	
@@ -32,6 +35,14 @@ public class RegTelefonico {
 	@ManyToOne
 	@JoinColumn(name="tp_transaction")
 	private TipoIsolamento tipoIsolamento;
+	
+	@NotNull
+	@Column(name="vl_custo")
+	private Double custo;
+	
+	@NotNull
+	@Column(name="tm_ligacao")
+	private String tempo_ligacao;
 
 	public Long getId() {
 		return id;
@@ -63,6 +74,22 @@ public class RegTelefonico {
 
 	public void setTipoIsolamento(TipoIsolamento tipoIsolamento) {
 		this.tipoIsolamento = tipoIsolamento;
+	}	
+
+	public Double getCusto() {
+		return custo;
+	}
+
+	public void setCusto(Double custo) {
+		this.custo = custo;
+	}
+
+	public String getTempo_ligacao() {
+		return tempo_ligacao;
+	}
+
+	public void setTempo_ligacao(String tempo_ligacao) {
+		this.tempo_ligacao = tempo_ligacao;
 	}
 
 	@Override

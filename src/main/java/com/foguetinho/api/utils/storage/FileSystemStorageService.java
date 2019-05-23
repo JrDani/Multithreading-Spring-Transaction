@@ -26,6 +26,9 @@ import com.foguetinho.api.utils.DeserializaCsv;
 public class FileSystemStorageService implements StorageService {
 
     private final Path rootLocation;
+    
+    @Autowired
+    private DeserializaCsv deserializaCsv;
 
     @Autowired
     public FileSystemStorageService(StorageProperties properties) {
@@ -52,9 +55,11 @@ public class FileSystemStorageService implements StorageService {
                     StandardCopyOption.REPLACE_EXISTING);
             }
             BufferedReader bufferedReader;
-            try {
+            try {            	
             	bufferedReader = new BufferedReader(new FileReader(this.rootLocation.resolve(filename).toString()));
-            	regTelefonico = DeserializaCsv.deserialize(bufferedReader);            	
+            	regTelefonico = deserializaCsv.deserialize(bufferedReader);   
+            	regTelefonico.setTempo_ligacao("0 1:34:56");
+            	regTelefonico.setCusto(10.00);
             	bufferedReader.close();
             }finally {}
         }

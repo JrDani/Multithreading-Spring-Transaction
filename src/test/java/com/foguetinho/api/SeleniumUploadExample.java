@@ -25,7 +25,9 @@ public class SeleniumUploadExample {
  
     public void enviandoFatura(){
         fazUpload();
-        enviaArquivos();
+        for(int i=0; i<5000; i++) {
+        	enviaArquivos();
+        }
     }
     
     private void fazUpload(){    	
@@ -35,12 +37,13 @@ public class SeleniumUploadExample {
     	int n = rand.nextInt(4);
     	
     	String projectPath = System.getProperty("user.dir");
-    	
-    	inputFilePath.sendKeys(projectPath+"/src/main/resources/static/fatura"+n+".csv");
-    	
+    	    
+		inputFilePath.sendKeys(projectPath+"/src/main/resources/static/fatura"+n+".csv");   		
+	
     	if(inputFilePath!= null) {
     		this.config.getDriver().findElement(By.id("prepara_arquivo")).click();
     	}
+    	
     }
     
     private void enviaArquivos(){    	

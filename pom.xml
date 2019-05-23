@@ -6,7 +6,6 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>2.2.0.M2</version>
-		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.foguetinho</groupId>
 	<artifactId>CSVComTransactional</artifactId>
@@ -28,24 +27,24 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>org.flywaydb</groupId>
-			<artifactId>flyway-core</artifactId>
-		</dependency>
-
-		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
 			<scope>runtime</scope>
-		</dependency>
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<scope>runtime</scope>
-		</dependency>
+		</dependency>	
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
+		</dependency>
+		<!-- oracle database -->
+		<dependency>
+		    <groupId>com.oracle.jdbc</groupId>
+		    <artifactId>ojdbc8</artifactId>
+		    <version>18.3.0.0</version>
+	  	</dependency>
+		<dependency>
+		    <groupId>com.zaxxer</groupId>
+		    <artifactId>HikariCP</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>javax.servlet</groupId>
@@ -71,12 +70,7 @@
 			<artifactId>bootstrap</artifactId>
 			<version>4.1.3</version>
 		</dependency>
-		<!-- file 
-		<dependency>
-		    <groupId>com.google.guava</groupId>
-		    <artifactId>guava-io</artifactId>
-		    <version>r03</version>
-		</dependency>	-->	
+		<!-- file -->		
 		<!-- test ng -->
 		<dependency>
 		    <groupId>org.testng</groupId>
@@ -89,14 +83,7 @@
 		    <groupId>org.hamcrest</groupId>
 		    <artifactId>hamcrest-all</artifactId>
 		    <version>1.3</version>
-		</dependency>
-		<!-- Selenium -->
-		<dependency>
-		    <groupId>io.github.bonigarcia</groupId>
-		    <artifactId>webdrivermanager</artifactId>
-		    <version>3.6.0</version>
-		    <scope>test</scope>
-		</dependency>
+		</dependency>	
 		<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
 		<dependency>
 		    <groupId>org.seleniumhq.selenium</groupId>
@@ -136,6 +123,16 @@
 			<name>Spring Milestones</name>
 			<url>https://repo.spring.io/milestone</url>
 		</repository>
+	  <repository>
+	    <id>maven.oracle.com</id>
+	    <name>oracle-maven-repo</name>
+	    <url>https://maven.oracle.com</url>
+	    <layout>default</layout>
+	    <releases>
+	      <enabled>true</enabled>
+	      <updatePolicy>always</updatePolicy>
+	    </releases>
+	  </repository>
 	</repositories>
 	<pluginRepositories>
 		<pluginRepository>
@@ -151,6 +148,16 @@
 			<name>Spring Milestones</name>
 			<url>https://repo.spring.io/milestone</url>
 		</pluginRepository>
+		<pluginRepository>
+		    <id>maven.oracle.com</id>
+		    <name>oracle-maven-repo</name> 
+		    <url>https://maven.oracle.com</url>
+		    <layout>default</layout>
+		    <releases>
+		      <enabled>true</enabled>
+		      <updatePolicy>always</updatePolicy>
+		    </releases>
+		  </pluginRepository>
 	</pluginRepositories>
 
 </project>

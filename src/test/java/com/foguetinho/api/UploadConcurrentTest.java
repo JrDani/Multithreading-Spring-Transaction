@@ -47,7 +47,7 @@ public class UploadConcurrentTest implements ApplicationContextAware, Initializi
         this.applicationContext = applicationContext;
     }  
     
-    @Test(threadPoolSize = 1, invocationCount = 10, timeOut = 50000)
+    @Test(threadPoolSize = 1, invocationCount = 10, timeOut = 1000000000)
     public void givenMethod_whenRunInThreads_thenCorrect() {
         int count = Thread.activeCount();
         
